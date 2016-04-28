@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TODO Tracker</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>		
+	</head>
+
+	<body>	
+	
+		<!--Navigationsbar-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+				  <a class="navbar-brand">TODO Tracker</a>
+				</div>
+				<!--navbar linkbündig-->
+				<ul class="nav navbar-nav">
+				  <li class="active"><a href="#">Übersicht</a></li>
+				  <li><a href="./anlegen.html">Aufgabe anlegen</a></li>
+				</ul>
+				 <!-- navbar rechtsbüdig-->
+				<ul class="nav navbar-nav navbar-right">
+				  <li><a href="./impressum.html">Impressum</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- TODO Tabelle -->
+		<div class="container">
+			<h2>TODO-Tracker</h2>
+			<div class="table-responsive">	
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Aufgabe</th>
+							<th>Beschreibung</th>
+							<th>Deadline</th>
+							<th>Stand</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO 1</td>
+							<td>blabla</td>
+							<td>01.01.2000</td>
+							<td>
+								<meter value="0.5">50%</meter> 50%
+							</td>
+							<td>
+								<form action="./edit.html">
+									<input type="submit" value="Bearbeiten" type="button" class="btn btn-default">
+								</form>
+							</td>
+							<td>
+								<button type="button" class="btn btn-danger">Löschen</button>
+							</td>
+						</tr>
+						<tr class="danger">
+							<td>TODO 2</td>
+							<td>blabla</td>
+							<td>01.01.2000</td>
+							<td>
+								<meter value="0.1">10%</meter> 10%
+							</td>
+							<td>
+								<form action="./edit.html">
+									<input type="submit" value="Bearbeiten" type="button" class="btn btn-default">
+								</form>
+							</td>
+							<td>
+								<button type="button" class="btn btn-danger">Löschen</button>
+							</td>
+						</tr>
+						<tr>
+							<td>TODO 3</td>
+							<td>blabla</td>
+							<td>01.01.2000</td>
+							<td>
+								<meter value="0.7">70%</meter> 70%
+							</td>
+							<td>
+								<form action="./edit.html">
+									<input type="submit" value="Bearbeiten" type="button" class="btn btn-default">
+								</form>
+							</td>
+							<td>
+								<button type="button" class="btn btn-danger">Löschen</button>
+							</td>
+						</tr>
+						<tr class="success">
+							<td>TODO 4</td>
+							<td>blabla</td>
+							<td>01.01.2000</td>
+							<td>
+								<meter value="1">100%</meter> 100%
+							</td>
+							<td>
+								<form action="./edit.html">
+									<input type="submit" value="Bearbeiten" type="button" class="btn btn-default">
+								</form>
+							</td>
+							<td>
+								<button type="button" class="btn btn-danger">Löschen</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
