@@ -1,0 +1,30 @@
+<!-- Ergänzung von base.html -->
+{% extends 'todotracker/base.html' %}
+
+<!-- Navigationsbar, Impressum bekommt class=active -->
+{% block navbar_content %}
+            <!--navbar linkbündig-->
+            <ul class="nav navbar-nav">
+               <li><a href="{% url 'task_list' %}">Übersicht</a></li>
+               <li><a href="{% url 'new' %}">Aufgabe anlegen</a></li>
+            </ul>
+            <!-- navbar rechtsbüdig-->
+            <ul class="nav navbar-nav navbar-right">
+               <li class="active"><a href="#">Impressum</a></li>
+            </ul>
+{% endblock navbar_content %}
+    
+<!-- Inhalt, hier: Impressum -->
+{% block content %}	
+	<h2>Impressum/Kontaktinformationen</h2>
+      <div class="row">
+         <div class="col-md-6">
+            <h4>Dora Szücs</h4>
+            <p>Email: szuucs.dora@gmail.com</p>
+         </div>
+         <div class="col-md-6">
+            <h4>Niels Warncke</h4>
+            <p>Email: niels.warncke@gmail.com</p>
+         </div>
+      </div>
+{% endblock content %}

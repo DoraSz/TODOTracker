@@ -1,0 +1,63 @@
+<!-- Ergänzung von base.html -->
+{% extends 'todotracker/base.html' %}
+
+<!-- Navigationsbar, Übersicht bekommt class=active -->
+{% block navbar_content %}
+            <!--navbar linkbündig-->
+            <ul class="nav navbar-nav">
+               <li class="active"><a href="#">Übersicht</a></li>
+               <li><a href="{% url 'new' %}">Aufgabe anlegen</a></li>
+            </ul>
+            <!-- navbar rechtsbüdig-->
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="{% url 'impressum' %}">Impressum</a></li>
+            </ul>
+{% endblock navbar_content %}
+
+<!-- Inhalt, hier: Liste der Aufgaben im Tabellenform -->
+{% block content %}
+        <!-- fixed width container, alternativ könnte man container-fluid verwenden -->
+         <h2>TODO-Tracker</h2>
+         <div class="table-responsive">
+            <!-- Dadurch wird auf einem zu kleinen Display ein Scrollbalken angezeigt -->
+            <table class="table">
+               <!-- Basic Style von bootstrap für tabellen -->
+               <thead>
+                  <!-- Tabellenkopf -->
+                  <tr>
+                     <th>Aufgabe</th>
+                     <th>Beschreibung</th>
+                     <th>Deadline</th>
+                     <th>Stand</th>
+                     <th></th>
+                     <th></th>
+                  </tr>
+               </thead>
+               <tbody>
+				<!-- Über die Query Set tasks iterieren und Daten in die Tabelle schreiben -->
+				{% for task in tasks %}
+					<!-- success class, falls Stand 100% -->
+					<!-- danger class, falls Deadline in der Vergangenheit -->
+                  <tr {% if task.context == 'succes'%} class="success" {% elif task.context == 'danger'%} class="danger" {% endif %}>
+                     <td>{{ task.title }}</td>
+                     <td>{{ task.text }}</td>
+                     <td>{{ task.deadline }}</td>
+                     <td>
+                        <meter value="{{ task.meter }}">{{ task.state }}</meter> {{ task.state }}%
+                     </td>
+                     <td>
+                        <form action="{% url 'edit' pk=task.pk %}">
+                           <input type="submit" value="Bearbeiten" type="button" class="btn btn-default">
+                        </form>
+                     </td>
+                     <td>
+						<form action="{% url 'delete' pk=task.pk %}">
+							<input type="submit" value="Löschen" type="button" class="btn btn-danger">
+						</form>
+                     </td>
+                  </tr>
+				  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+{% endblock content %}
